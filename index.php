@@ -8,7 +8,12 @@ $config = require 'config.php';
 
 $db = new Database($config, 'root', 'root');
 
-$books = $db->query("SELECT * FROM books")->fetchAll();
+
+$query = "SELECT * FROM books where id = :id";
+
+$id = $_GET['id'] ?? null;
+
+$books = $db->query($query, [':id' => $id])->fetch();
 
 print_r($books);
 require 'router.php';
