@@ -15,5 +15,4 @@ $id = $_GET['id'] ?? null;
 
 $books = $db->query($query, [':id' => $id])->fetch();
 
-print_r($books);
 require 'router.php';
