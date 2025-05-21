@@ -9,6 +9,7 @@ $routes = [
     '/contact' => 'controllers/contact.php',
     '/books' => 'controllers/books.php',
     '/book' => 'controllers/book.php',
+    '/books/create' => 'controllers/book-create.php',
 ];
 
 function routeToController($url, $routes)

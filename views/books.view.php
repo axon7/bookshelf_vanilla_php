@@ -6,9 +6,14 @@
         You are on BOOKS page
         <?php foreach ($books as $book) : ?>
             <a href="/book?id=<?= $book['id'] ?>" class="block text-blue-500 hover:underline">
-                <li><?= $book['title'] . $book['author'] ?></li>
+                <li><?= $book['title'] . ' - ' . $book['author'] ?></li>
             </a>
         <?php endforeach; ?>
+        <a href="/books/create" class="block text-blue-500 hover:underline">
+            Create Book
+        </a>
     </div>
+
+
 </main>
 <?php require 'partials/footer.php'; ?>

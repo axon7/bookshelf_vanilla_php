@@ -11,7 +11,7 @@ FROM books
 INNER JOIN authors
 ON books.author_id = authors.id;";
 
-$books = $db->query($query)->fetchAll();
+$books = $db->query($query)->get();
 
 
 

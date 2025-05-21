@@ -13,7 +13,7 @@ INNER JOIN authors
 ON books.author_id = authors.id
 WHERE books.id = :id";
 
-$book = $db->query($query, ['id' => $id])->fetch();
+$book = $db->query($query, ['id' => $id])->find();
 
 
 require 'views/book.view.php';
