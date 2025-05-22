@@ -2,7 +2,7 @@
 $heading = "Book";
 
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 
 $db = new Database($config, 'root', 'root');
 $id = $_GET['id'] ?? null;
@@ -16,4 +16,7 @@ WHERE books.id = :id";
 $book = $db->query($query, ['id' => $id])->find();
 
 
-require 'views/books/show.view.php';
+view('books/show.view.php', [
+    'heading' => $heading,
+    'book' => $book
+]);

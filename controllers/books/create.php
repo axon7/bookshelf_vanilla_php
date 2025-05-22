@@ -1,8 +1,7 @@
 <?php
 $heading = "Books";
-require 'Validator.php';
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 
 $db = new Database($config, 'root', 'root');
 
@@ -15,12 +14,8 @@ $books = $db->query($query)->get();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
-
-
     $title = $_POST['title'];
     $author_id = 1;
-
-
 
     if (empty($title)) {
         $errors['title'] = 'Title is required';
@@ -31,8 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if (empty($errors)) {
-
-
         $query = "INSERT INTO books (title, author_id) VALUES (:title, :author_id)";
         $db->query($query, [
             'title' => $title,
@@ -42,4 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require 'views/books/create.view.php';
+view('books/create.view.php', [
+    'heading' => $heading,
+    'errors' => $errors ?? [],
+]);

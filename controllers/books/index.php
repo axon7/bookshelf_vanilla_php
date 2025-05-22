@@ -2,7 +2,7 @@
 $heading = "Books";
 
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 
 $db = new Database($config, 'root', 'root');
 
@@ -16,4 +16,7 @@ $books = $db->query($query)->get();
 
 
 
-require 'views/books/index.view.php';
+view('books/index.view.php', [
+    'heading' => $heading,
+    'books' => $books
+]);
