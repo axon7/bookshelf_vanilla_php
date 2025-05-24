@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+
 function urlIs($path)
 {
     // print $path in console

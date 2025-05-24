@@ -1,4 +1,7 @@
 <?php
+
+use Core\Database;
+
 $heading = "Books";
 
 

@@ -1,4 +1,8 @@
 <?php
+
+use Core\Database;
+use Core\Validator;
+
 $heading = "Books";
 
 $config = require base_path('config.php');

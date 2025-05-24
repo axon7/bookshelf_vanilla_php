@@ -1,9 +1,14 @@
 <?php
 
+namespace Core;
+
+use PDO;
+use PDOException;
 
 $servername = "localhost";
 $username = "root";
 $password = "root";
+
 
 
 class Database
