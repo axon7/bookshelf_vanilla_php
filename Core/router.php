@@ -16,10 +16,10 @@ function routeToController($url, $routes)
 {
     if (array_key_exists($url, $routes)) {
 
-        require $routes[$url];
+        require base_path($routes[$url]);
     } else {
         http_response_code(404);
-        require 'views/404.php';
+        require base_path('views/404.php');
         die();
     }
 }
