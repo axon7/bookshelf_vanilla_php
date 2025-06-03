@@ -10,12 +10,8 @@ spl_autoload_register(function ($class) {
     require base_path("{$class}.php");
 });
 
-require base_path('Core/router.php');
 
-
-
-
-$config = require 'config.php';
+$config = require base_path('config.php');
 $db = new Core\Database($config, 'root', 'root');
 $query = "SELECT * FROM books where id = :id";
 $id = $_GET['id'] ?? null;
