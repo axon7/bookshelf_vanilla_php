@@ -1,13 +1,13 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
 $heading = "Books";
 
-$config = require base_path('config.php');
+$db = App::resolve('Core\Database');
 
-$db = new Database($config, 'root', 'root');
 
 
 $errors = [];

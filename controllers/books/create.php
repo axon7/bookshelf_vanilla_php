@@ -1,13 +1,11 @@
 <?php
 
-use Core\Database;
 use Core\Validator;
+use Core\App;
 
 $heading = "Books";
+$db = App::resolve('Core\Database');
 
-$config = require base_path('config.php');
-
-$db = new Database($config, 'root', 'root');
 
 $query = "SELECT books.id, title, authors.full_name as 'author'
 FROM books

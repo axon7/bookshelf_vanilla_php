@@ -1,11 +1,10 @@
 <?php
 
-use Core\Database;
+use Core\App;
 
 $heading = "Book";
 
-$config = require base_path('config.php');
-$db = new Database($config, 'root', 'root');
+$db = App::resolve('Core\Database');
 
 $id = $_GET['id'] ?? null;
 
