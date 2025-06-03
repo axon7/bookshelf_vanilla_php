@@ -5,7 +5,7 @@
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
     Create book page
 
-    <form method="POST">
+    <form method="POST" action="/books" class="max-w-md mx-auto">
         <input type="text" name="title" placeholder="Title" class="border border-gray-300 rounded-md p-2 mb-4 w-full" value="<?= htmlspecialchars($_POST['title'] ?? '') ?>">
         <?php if (isset($errors['title'])) : ?>
             <p class="text-red-500 text-sm mb-4"><?= $errors['title'] ?></p>

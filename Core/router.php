@@ -1,28 +1,69 @@
 <?php
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+namespace Core;
 
-
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    // '/contact' => 'controllers/contact.php',
-    '/books' => 'controllers/books/index.php',
-    '/book' => 'controllers/books/show.php',
-    '/books/create' => 'controllers/books/create.php',
-];
-
-function routeToController($url, $routes)
+class Router
 {
-    if (array_key_exists($url, $routes)) {
 
-        require base_path($routes[$url]);
-    } else {
-        http_response_code(404);
-        require base_path('views/404.php');
+
+    protected $routes = [];
+
+    public function get($uri, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => 'GET'
+        ];
+    }
+
+    public function post($uri, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => 'POST'
+        ];
+    }
+
+    public function put($uri, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => 'PUT'
+        ];
+    }
+
+    public function delete($uri, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => 'DELETE'
+        ];
+    }
+
+    public function route($uri, $method)
+
+
+    {
+        foreach ($this->routes as $route) {
+            if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+
+                return require base_path($route['controller']);
+            }
+        }
+
+        $this->abort();
+    }
+
+    protected function abort($code = 404)
+    {
+        http_response_code($code);
+
+        require base_path("views/{$code}.php");
+
         die();
     }
 }
-
-
-routeToController($uri, $routes);
