@@ -35,6 +35,15 @@ class Router
         ];
     }
 
+    public function patch($uri, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => 'PATCH'
+        ];
+    }
+
     public function delete($uri, $controller)
     {
         $this->routes[] = [

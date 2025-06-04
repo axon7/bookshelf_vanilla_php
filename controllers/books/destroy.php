@@ -6,9 +6,7 @@ $heading = "Book";
 
 $db = App::resolve('Core\Database');
 
-$id = $_GET['id'] ?? null;
-
-
+$id = $_POST['id'] ?? null;
 
 
 $query = "DELETE FROM books WHERE id = :id";

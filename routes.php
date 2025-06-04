@@ -20,3 +20,5 @@ $router->delete('/book', 'controllers/books/destroy.php');
 
 $router->get('/books/create', 'controllers/books/create.php');
 $router->post('/books', 'controllers/books/store.php');
+$router->get('/book/edit', 'controllers/books/edit.php');
+$router->patch('/book', 'controllers/books/update.php');
