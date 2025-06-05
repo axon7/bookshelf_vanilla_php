@@ -2,7 +2,7 @@
 
 use Core\App;
 
-$heading = "Book";
+$heading = "Hello {$_SESSION['username']}";
 
 $db = App::resolve('Core\Database');
 

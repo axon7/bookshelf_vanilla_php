@@ -10,6 +10,10 @@ spl_autoload_register(function ($class) {
     require base_path("{$class}.php");
 });
 
+session_start();
+
+
+
 
 $config = require base_path('config.php');
 $db = new Core\Database($config, 'root', 'root');
