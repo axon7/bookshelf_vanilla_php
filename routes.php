@@ -22,3 +22,6 @@ $router->get('/books/create', 'controllers/books/create.php');
 $router->post('/books', 'controllers/books/store.php');
 $router->get('/book/edit', 'controllers/books/edit.php');
 $router->patch('/book', 'controllers/books/update.php');
+
+$router->get('/register', 'controllers/registration/create.php');
+$router->post('/register', 'controllers/registration/store.php');
